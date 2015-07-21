@@ -32,7 +32,7 @@ void Graphics_Freeglut::draw()
 
 	//draw 3 vertices as triangles
 	glDrawArrays(GL_TRIANGLES, 0, 3);
-
+	
 	// swaps between back buffer and front buffer. Remember that we are using double buffering.
 	glutSwapBuffers();
 }
