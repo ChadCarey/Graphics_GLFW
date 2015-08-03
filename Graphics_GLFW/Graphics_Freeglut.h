@@ -3,7 +3,7 @@
 #include"GL/freeglut.h"
 #include <iostream>
 #include <string>
-#include "ShaderLoader.h"
+#include "ShaderManager.h"
 #include "GameModels.h"
 
 /**
@@ -31,7 +31,7 @@ private:
 	GLuint shaderProgram;
 	Models::GameModels* gameModels;
 	
-	ShaderLoader shaderLoader;
+	Managers::ShaderManager shaderManager;
 	void initShaders();
 	void closeCallback();
 

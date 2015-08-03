@@ -1,13 +1,13 @@
 #pragma once
-#include "ShaderLoader.h"
+#include "ShaderManager.h"
 #include "GameModels.h"
 #include<iostream>
-#include<stdio.h>;
-#include<stdlib.h>;
-#include<fstream>;
-#include<vector>;
-
+#include<stdio.h>
+#include<stdlib.h>
+#include<fstream>
+#include<vector>
 #include <iostream>
+using namespace Managers;
 
 /**
 * Graphics_Freeglut is an abstraction to openGL and the free glut library
@@ -20,6 +20,7 @@
 
 Models::GameModels* gameModels;
 GLuint program;
+ShaderManager* shaderManager;
 
 std::string findOpenGLVersion()
 {
@@ -90,15 +91,16 @@ void Init()
 	gameModels->CreateTriangleModel("triangle1");
 
 	//load and compile shaders
-	ShaderLoader shaderLoader;
-	program = shaderLoader.CreateProgram("Vertex_Shader.glsl",
+	shaderManager = new ShaderManager();
+	shaderManager->CreateProgram("colorShader", "Vertex_Shader.glsl",
 		"Fragment_Shader.glsl");
+	program = ShaderManager::GetShader("colorShader");
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
 int main(int argc, char **argv)
 {
-
+	// set up the display window
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(400, 100); //optional
@@ -110,6 +112,7 @@ int main(int argc, char **argv)
 	glewInit();
 	findOpenGLVersion();
 
+	// inicialize shader program
 	Init();
 	// register drawing callbacks
 	glutDisplayFunc(renderScene);
@@ -117,7 +120,9 @@ int main(int argc, char **argv)
 
 	glutMainLoop();
 
+	// delete globals (look for a way to make them not global later)
 	delete gameModels;
+	delete shaderManager;
 	glDeleteProgram(program);
 	return 0;
 }

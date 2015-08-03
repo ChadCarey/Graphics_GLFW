@@ -1,9 +1,22 @@
-#include "ShaderLoader.h"
+#include "ShaderManager.h"
+using namespace Managers;
 
-ShaderLoader::ShaderLoader(void){}
-ShaderLoader::~ShaderLoader(void){}
+std::map<std::string, GLuint> ShaderManager::programs; // look up why this is needed for it to work
 
-std::string ShaderLoader::ReadShader(std::string filename)
+ShaderManager::ShaderManager(void){}
+
+ShaderManager::~ShaderManager(void)
+{
+	std::map<std::string, GLuint>::iterator i;
+	for (i = programs.begin(); i != programs.end(); ++i)
+	{
+		GLuint pr = i->second;
+		glDeleteProgram(pr);
+	}
+	programs.clear();
+}
+
+std::string ShaderManager::ReadShader(std::string filename)
 {
 
 	std::string shaderCode;
@@ -23,16 +36,17 @@ std::string ShaderLoader::ReadShader(std::string filename)
 	return shaderCode;
 }
 
-GLuint ShaderLoader::CreateShader(GLenum shaderType, std::string source, char* shaderName)
+GLuint ShaderManager::CreateShader(GLenum shaderType, const std::string& source, const std::string& shaderName)
 {
 
 	int compile_result = 0;
 
 	GLuint shader = glCreateShader(shaderType);
+	
 	const char *shader_code_ptr = source.c_str();
 	const int shader_code_size = source.size();
-
 	glShaderSource(shader, 1, &shader_code_ptr, &shader_code_size);
+
 	glCompileShader(shader);
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &compile_result);
 
@@ -50,7 +64,7 @@ GLuint ShaderLoader::CreateShader(GLenum shaderType, std::string source, char* s
 	return shader;
 }
 
-GLuint ShaderLoader::CreateProgram(std::string vertexShaderFilename, std::string fragmentShaderFilename)
+void ShaderManager::CreateProgram(const std::string& shaderName, const std::string& vertexShaderFilename, const std::string& fragmentShaderFilename)
 {
 
 	//read the shader files and save the code
@@ -77,7 +91,33 @@ GLuint ShaderLoader::CreateProgram(std::string vertexShaderFilename, std::string
 		std::vector<char> program_log(info_log_length);
 		glGetProgramInfoLog(program, info_log_length, NULL, &program_log[0]);
 		std::cout << "Shader Loader : LINK ERROR" << std::endl << &program_log[0] << std::endl;
-		return 0;
+		return;
 	}
-	return program;
+	programs[shaderName] = program;
+}
+
+const GLuint ShaderManager::GetShader(const std::string& shaderName) throw (std::string)
+{
+	GLuint pro;
+	try
+	{
+		pro = programs.at(shaderName);
+	}
+	catch (const std::out_of_range& oor)
+	{
+		throw "shader program was not found\n";
+	}
+	return pro;
+}
+
+void ShaderManager::DeleteShader(const std::string& shaderName)
+{
+	try
+	{
+		programs.erase(shaderName);
+	}
+	catch (const std::out_of_range& oor)
+	{
+		std::cerr << "ShaderManager::DeleteShader: Shader not found, could not be deleted\n";
+	}
 }

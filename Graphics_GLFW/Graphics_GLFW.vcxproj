@@ -75,7 +75,7 @@
     <ClCompile Include="GameModels.cpp" />
     <ClCompile Include="Graphics_Freeglut.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ShaderLoader.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="openGlSetup.txt" />
@@ -83,7 +83,7 @@
   <ItemGroup>
     <ClInclude Include="GameModels.h" />
     <ClInclude Include="Graphics_Freeglut.h" />
-    <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="VertexFormat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

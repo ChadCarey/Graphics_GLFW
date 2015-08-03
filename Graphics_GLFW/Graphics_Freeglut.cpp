@@ -1,4 +1,5 @@
 #include "Graphics_Freeglut.h"
+using namespace Managers;
 
 Graphics_Freeglut* instance;
 
@@ -53,7 +54,8 @@ void Graphics_Freeglut::initShaders()
 	gameModels->CreateTriangleModel("triangle1");
 
 	//load and compile shaders
-	shaderProgram = shaderLoader.CreateProgram("Vertex_Shader.glsl", "Fragment_Shader.glsl");
+	shaderManager.CreateProgram("colorShader", "Vertex_Shader.glsl", "Fragment_Shader.glsl");
+	shaderProgram = ShaderManager::GetShader("colorShader");
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
