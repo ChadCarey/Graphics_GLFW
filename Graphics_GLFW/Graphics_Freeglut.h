@@ -1,8 +1,10 @@
+#pragma once
 #include "GL/glew.h"
 #include"GL/freeglut.h"
 #include <iostream>
 #include <string>
 #include "ShaderLoader.h"
+#include "GameModels.h"
 
 /**
 * Graphics_Freeglut is an abstraction to openGL and the free glut library
@@ -17,17 +19,21 @@ public:
 	Graphics_Freeglut();
 	Graphics_Freeglut(int windowX, int windowY, int possitionX, int possitionY);
 	void run(int argc, char* argv[]);
-	void draw(); // must be static to be in a class
+	void draw();
+	void renderScene(void);
 
 	// C function wrappers
 	static void displayWrapper();
+	static void closeWrapper();
 private:
 	int windowX, windowY, possitionX, possitionY;
 
 	GLuint shaderProgram;
+	Models::GameModels* gameModels;
 	
 	ShaderLoader shaderLoader;
 	void initShaders();
+	void closeCallback();
 
 	std::string openGLVersion;
 	std::string findOpenGLVersion();

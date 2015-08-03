@@ -27,6 +27,8 @@ void Graphics_Freeglut::draw()
 	// specify clear values for color buffers. These values must be between 0.0 and 1.0. Arguments are : red, green, blue, alpha.
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 
+	// bind our vertex array
+	glBindVertexArray(gameModels->GetModel("triangle1"));
 	//use the created shader program
 	glUseProgram(shaderProgram);
 
@@ -37,9 +39,18 @@ void Graphics_Freeglut::draw()
 	glutSwapBuffers();
 }
 
+void Graphics_Freeglut::closeCallback()
+{
+	std::cout << "GLUT:\t Finished" << std::endl;
+	glutLeaveMainLoop();
+}
+
 void Graphics_Freeglut::initShaders()
 {
 	glEnable(GL_DEPTH_TEST);
+
+	gameModels = new Models::GameModels();
+	gameModels->CreateTriangleModel("triangle1");
 
 	//load and compile shaders
 	shaderProgram = shaderLoader.CreateProgram("Vertex_Shader.glsl", "Fragment_Shader.glsl");
@@ -62,7 +73,9 @@ void Graphics_Freeglut::run(int argc, char* argv[])
 	
 	// draw callback
 	glutDisplayFunc(Graphics_Freeglut::displayWrapper);
+	glutCloseFunc(Graphics_Freeglut::closeWrapper);
 
+	delete gameModels;
 	glutMainLoop();
 	glDeleteProgram(shaderProgram);
 }
@@ -104,4 +117,9 @@ std::string Graphics_Freeglut::findOpenGLVersion()
 void Graphics_Freeglut::displayWrapper()
 {
 	instance->draw();
+}
+
+void Graphics_Freeglut::closeWrapper()
+{
+	instance->closeCallback();
 }

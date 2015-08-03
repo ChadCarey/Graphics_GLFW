@@ -72,6 +72,7 @@
     <None Include="Vertex_Shader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameModels.cpp" />
     <ClCompile Include="Graphics_Freeglut.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
@@ -80,6 +81,7 @@
     <Text Include="openGlSetup.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameModels.h" />
     <ClInclude Include="Graphics_Freeglut.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="VertexFormat.h" />
