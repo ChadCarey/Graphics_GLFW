@@ -74,6 +74,8 @@
   <ItemGroup>
     <ClCompile Include="GameModels.cpp" />
     <ClCompile Include="Graphics_Freeglut.cpp" />
+    <ClCompile Include="InitGlew.cpp" />
+    <ClCompile Include="InitGlut.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
   </ItemGroup>
@@ -81,10 +83,16 @@
     <Text Include="openGlSetup.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ContextInfo.h" />
+    <ClInclude Include="FrameBufferInfo.h" />
     <ClInclude Include="GameModels.h" />
     <ClInclude Include="Graphics_Freeglut.h" />
+    <ClInclude Include="InitGlew.h" />
+    <ClInclude Include="InitGlut.h" />
+    <ClInclude Include="Listener.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="VertexFormat.h" />
+    <ClInclude Include="WindowInfo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
