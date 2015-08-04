@@ -2,33 +2,45 @@
 
 using namespace Core;
 
+// statics
+Core::IListener* Init_GLUT::listener = NULL;
+Core::WindowInfo Init_GLUT::windowInformation;
+
 void Init_GLUT::init(const Core::WindowInfo& windowInfo, const Core::ContextInfo& contextInfo, const Core::FramebufferInfo& framebufferInfo)
 {
 	// dummy args
 	int fakeargc = 1;
 	char *fakeargv[] = { "dummy", NULL };
 	glutInit(&fakeargc, fakeargv);
-
+	
 	if (contextInfo.core)
 	{
-		glutInitContextVersion(contextInfo.major_version,
-			contextInfo.minor_version);
+		std::cout << "Setting context version to" << contextInfo.major_version << "." << contextInfo.minor_version << std::endl;
+		glutInitContextVersion(contextInfo.major_version, contextInfo.minor_version);
 		glutInitContextProfile(GLUT_CORE_PROFILE);
 	}
 	else
 	{
 		// this puts glut into compatability mode so that the version doesn't matter
 		// this only works within a core contex mode
+		std::cout << "Setting context version to compatability mode\n";
 		glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 	}
 
+	std::cout << "x: " << windowInfo.position_x << std::endl;
+	std::cout << "y: " << windowInfo.position_y << std::endl;
+	std::cout << "width: " << windowInfo.width << std::endl;
+	std::cout << "height: " << windowInfo.height << std::endl;
+	std::cout << "name: " << windowInfo.name.c_str() << std::endl;
+
 	glutInitDisplayMode(framebufferInfo.flags);
-	glutInitWindowPosition(windowInfo.position_x,
-		windowInfo.position_y);
+	glutInitWindowPosition(windowInfo.position_x, windowInfo.position_y);
 	glutInitWindowSize(windowInfo.width, windowInfo.height);
+	
+
 
 	glutCreateWindow(windowInfo.name.c_str());
-
+	
 	std::cout << "GLUT:initialized" << std::endl;
 	
 	// callbacks
@@ -87,14 +99,29 @@ void Init_GLUT::idleCallback(void)
 
 void Init_GLUT::displayCallback()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0, 0.0, 0.0, 1);
-	glutSwapBuffers();
+	//check for NULL
+	if (listener)
+	{
+		listener->notifyBeginFrame();
+		listener->notifyDisplayFrame();
+
+		glutSwapBuffers();
+
+		listener->notifyEndFrame();
+	}
 }
 
 void Init_GLUT::reshapeCallback(int width, int height)
 {
-
+	if (windowInformation.isReshapable == true)
+	{
+		if (listener)
+		{
+			listener->notifyReshape(width, height, windowInformation.width, windowInformation.height);
+		}
+		windowInformation.width = width;
+		windowInformation.height = height;
+	}
 }
 
 void Init_GLUT::closeCallback()
@@ -110,4 +137,9 @@ void Init_GLUT::enterFullscreen()
 void Init_GLUT::exitFullscreen()
 {
 	glutLeaveFullScreen();
+}
+
+void Init_GLUT::setListener(Core::IListener*& iListener)
+{
+	listener = iListener;
 }

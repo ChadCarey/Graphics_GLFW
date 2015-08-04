@@ -1,3 +1,4 @@
+#pragma once
 #include "GL/glew.h"
 #include"GL/freeglut.h"
 #include <iostream>
@@ -12,11 +13,11 @@
 */
 namespace Managers
 {
-	class ShaderManager
+	class ShaderManager 
 	{
 	public:
-		ShaderManager(void);
-		~ShaderManager(void);
+		ShaderManager();
+		~ShaderManager();
 		void CreateProgram(const std::string& shaderName, const std::string& VertexShaderFilename, const std::string& FragmentShaderFilename);
 		static const GLuint ShaderManager::GetShader(const std::string& shaderName) throw (std::string);
 		static void ShaderManager::DeleteShader(const std::string& shaderName);

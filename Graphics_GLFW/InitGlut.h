@@ -4,7 +4,7 @@
 #include "WindowInfo.h"
 #include <iostream>
 #include "InitGlew.h"
-#include "Listener.h"
+#include "IListener.h"
 
 namespace Core 
 {

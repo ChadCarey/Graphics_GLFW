@@ -16,17 +16,14 @@ namespace Core
 
 		WindowInfo()
 		{
-			name = "OpenGL tutorial";
+			name = "OpenGL";
 			width = 800; height = 600;
 			position_x = 300;
 			position_y = 300;
 			isReshapable = true;
 		}
 
-		WindowInfo(std::string name,
-			int start_position_x, int start_position_y,
-			int width, int height,
-			bool is_reshapable)
+		WindowInfo(std::string name, int start_position_x, int start_position_y, int width, int height, bool is_reshapable)
 		{
 
 			this->name = name;

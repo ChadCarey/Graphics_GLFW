@@ -8,8 +8,8 @@ namespace Core{
 
 		ContextInfo()//default
 		{
-			major_version = 3;
-			minor_version = 3;
+			major_version = 4;
+			minor_version = 2;
 			core = true;
 		}
 

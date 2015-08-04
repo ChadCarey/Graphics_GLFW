@@ -2,9 +2,11 @@
 #include "GL\glew.h"
 #include "GL\freeglut.h"
 
-namespace Core{
+namespace Core
+{
 
-	struct FramebufferInfo{
+	struct FramebufferInfo
+	{
 
 		unsigned int flags;
 		bool msaa;//to enable or disable it when wee need it
