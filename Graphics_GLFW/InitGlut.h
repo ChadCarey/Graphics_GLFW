@@ -5,6 +5,7 @@
 #include <iostream>
 #include "InitGlew.h"
 #include "IListener.h"
+#include "DebugOutput.h"
 
 namespace Core 
 {

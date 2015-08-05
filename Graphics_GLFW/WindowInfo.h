@@ -3,7 +3,7 @@
 #include <string>
 
 /**
-* 
+*
 */
 namespace Core
 {
@@ -29,7 +29,6 @@ namespace Core
 			this->name = name;
 			this->position_x = start_position_x;
 			this->position_y = start_position_y;
-
 			this->width = width;
 			this->height = height;
 			this->isReshapable = is_reshapable;
@@ -40,7 +39,6 @@ namespace Core
 			name = windowInfo.name;
 			position_x = windowInfo.position_x;
 			position_y = windowInfo.position_y;
-
 			width = windowInfo.width;
 			height = windowInfo.height;
 			isReshapable = windowInfo.isReshapable;

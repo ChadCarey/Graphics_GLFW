@@ -34,6 +34,12 @@
     <Filter Include="Source Files\Managers">
       <UniqueIdentifier>{254f60f5-d69d-4fcc-ae33-d7094fc3dd29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Textures">
+      <UniqueIdentifier>{dedade9d-b8a4-4d79-b1a7-49bcc5de96e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Textures">
+      <UniqueIdentifier>{9bfc9ff2-e145-4c60-9e16-eefc716addc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -41,6 +47,9 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="Vertex_Shader.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Cube_Vertex_Shader.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>
@@ -71,6 +80,15 @@
     </ClCompile>
     <ClCompile Include="Quad.cpp">
       <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="LameCube.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +136,21 @@
     </ClInclude>
     <ClInclude Include="Quad.h">
       <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugOutput.h">
+      <Filter>Header Files\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="LameCube.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="BMPHeaders.h">
+      <Filter>Header Files\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

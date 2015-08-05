@@ -16,7 +16,7 @@ ShaderManager::~ShaderManager(void)
 	programs.clear();
 }
 
-std::string ShaderManager::ReadShader(std::string filename)
+std::string ShaderManager::readShader(const std::string filename)
 {
 
 	std::string shaderCode;
@@ -36,13 +36,13 @@ std::string ShaderManager::ReadShader(std::string filename)
 	return shaderCode;
 }
 
-GLuint ShaderManager::CreateShader(GLenum shaderType, const std::string& source, const std::string& shaderName)
+GLuint ShaderManager::createShader(GLenum shaderType, const std::string& source, const std::string& shaderName)
 {
 
 	int compile_result = 0;
 
 	GLuint shader = glCreateShader(shaderType);
-	
+
 	const char *shader_code_ptr = source.c_str();
 	const int shader_code_size = source.size();
 	glShaderSource(shader, 1, &shader_code_ptr, &shader_code_size);
@@ -64,15 +64,15 @@ GLuint ShaderManager::CreateShader(GLenum shaderType, const std::string& source,
 	return shader;
 }
 
-void ShaderManager::CreateProgram(const std::string& shaderName, const std::string& vertexShaderFilename, const std::string& fragmentShaderFilename)
+void ShaderManager::createProgram(const std::string& shaderName, const std::string& vertexShaderFilename, const std::string& fragmentShaderFilename)
 {
 
 	//read the shader files and save the code
-	std::string vertex_shader_code = ReadShader(vertexShaderFilename.c_str());
-	std::string fragment_shader_code = ReadShader(fragmentShaderFilename.c_str());
+	std::string vertex_shader_code = readShader(vertexShaderFilename.c_str());
+	std::string fragment_shader_code = readShader(fragmentShaderFilename.c_str());
 
-	GLuint vertex_shader = CreateShader(GL_VERTEX_SHADER, vertex_shader_code, "vertex shader");
-	GLuint fragment_shader = CreateShader(GL_FRAGMENT_SHADER, fragment_shader_code, "fragment shader");
+	GLuint vertex_shader = createShader(GL_VERTEX_SHADER, vertex_shader_code, "vertex shader");
+	GLuint fragment_shader = createShader(GL_FRAGMENT_SHADER, fragment_shader_code, "fragment shader");
 
 	int link_result = 0;
 	//create the program handle, attatch the shaders and link it
@@ -98,15 +98,13 @@ void ShaderManager::CreateProgram(const std::string& shaderName, const std::stri
 
 const GLuint ShaderManager::GetShader(const std::string& shaderName) throw (std::string)
 {
-	GLuint pro;
+	GLuint pro = 0;
 	try
 	{
 		pro = programs.at(shaderName);
 	}
-	catch (const std::out_of_range& oor)
-	{
-		throw "shader program was not found\n";
-	}
+	catch (std::out_of_range& oor)
+	{	}
 	return pro;
 }
 

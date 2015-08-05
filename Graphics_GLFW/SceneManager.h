@@ -18,8 +18,13 @@ namespace Managers
 		virtual void notifyDisplayFrame();
 		virtual void notifyEndFrame();
 		virtual void notifyReshape(int width, int height, int previous_width, int previous_height);
+
+		void setModelsManager(Managers::ModelsManager*& models_manager);
+
 	private:
-		Managers::ShaderManager* shader_manager;
+		//Managers::ShaderManager* shader_manager;
 		Managers::ModelsManager* models_manager;
+		glm::mat4 projection_matrix;
+		glm::mat4 view_matrix;
 	};
 }

@@ -12,7 +12,7 @@ void Init_GLUT::init(const Core::WindowInfo& windowInfo, const Core::ContextInfo
 	int fakeargc = 1;
 	char *fakeargv[] = { "dummy", NULL };
 	glutInit(&fakeargc, fakeargv);
-	
+
 	if (contextInfo.core)
 	{
 		std::cout << "Setting context version to" << contextInfo.major_version << "." << contextInfo.minor_version << std::endl;
@@ -36,13 +36,13 @@ void Init_GLUT::init(const Core::WindowInfo& windowInfo, const Core::ContextInfo
 	glutInitDisplayMode(framebufferInfo.flags);
 	glutInitWindowPosition(windowInfo.position_x, windowInfo.position_y);
 	glutInitWindowSize(windowInfo.width, windowInfo.height);
-	
 
 
 	glutCreateWindow(windowInfo.name.c_str());
-	
+
 	std::cout << "GLUT:initialized" << std::endl;
-	
+	//glEnable(GL_DEBUG_OUTPUT); // enables debug messages from OpenGL and shader programs ( must be done after glutCreateWindow() )
+
 	// callbacks
 	glutIdleFunc(idleCallback); // called when events are not being received.
 	glutCloseFunc(closeCallback);
@@ -51,13 +51,16 @@ void Init_GLUT::init(const Core::WindowInfo& windowInfo, const Core::ContextInfo
 
 	InitGLEW::Init();
 
+	// debug callback functions ( must be done after InitGLEW::Init() )
+	//glDebugMessageCallback(DebugOutput::Callback, NULL);
+	//glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
+
 
 	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE,
 		GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 
-	//
 	windowInformation = windowInfo;
-	
+
 	printOpenGLInfo(windowInfo, contextInfo);
 
 }

@@ -4,7 +4,7 @@ using namespace Rendering;
 
 Triangle::Triangle() {}
 
-Triangle::~Triangle() 
+Triangle::~Triangle()
 {
 	// deletion done in superclass
 }

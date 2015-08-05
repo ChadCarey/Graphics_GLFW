@@ -39,8 +39,8 @@ void InitGLEW::Init()
 	glewExperimental = true;
 	if (glewInit() == GLEW_OK)
 	{
-		std::cout << "GLEW: Initialize" << std::endl;
+		std::cout << "GLEW: Initialized" << std::endl;
 	}
 
-	findOpenGLVersion();
+	std::cout << findOpenGLVersion().c_str() << std::endl;
 }

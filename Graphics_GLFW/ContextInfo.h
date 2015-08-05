@@ -1,4 +1,5 @@
-namespace Core{
+namespace Core
+{
 
 	//OpenGL versions
 	struct ContextInfo
@@ -30,6 +31,7 @@ namespace Core{
 		{
 			this->major_version = origonal.major_version;
 			this->minor_version = origonal.minor_version;
+			this->core = origonal.core;
 		}
 	};
 }
