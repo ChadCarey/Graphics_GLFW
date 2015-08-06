@@ -13,6 +13,8 @@ void Cube::Create()
 	GLuint vao;
 	GLuint vbo;
 
+	//time(&timer);
+
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 

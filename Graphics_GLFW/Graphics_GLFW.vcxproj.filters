@@ -70,6 +70,15 @@
     <None Include="Cube_Vertex_Shader.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+    <None Include="Cube_Texture_Vertex_Shader.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Texture_Vertex_Shader.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Texture_Fragment_Shader.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InitGlew.cpp">
@@ -109,6 +118,9 @@
       <Filter>Source Files\DrawCube\Models</Filter>
     </ClCompile>
     <ClCompile Include="IndexedCube.cpp">
+      <Filter>Source Files\DrawCube\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeTexture.cpp">
       <Filter>Source Files\DrawCube\Models</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,5 +188,13 @@
     <ClInclude Include="IndexedCube.h">
       <Filter>Header Files\DrawCube\Models</Filter>
     </ClInclude>
+    <ClInclude Include="CubeTexture.h">
+      <Filter>Header Files\DrawCube\Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="SmileTexture.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -1,42 +1,38 @@
 #pragma once
-#include "InitGlut.h"
-#include "SceneManager.h"
 #include "Engine.h"
-#include "ModelsManager.h"
-#include "Cube.h"
-#include "IndexedCube.h"
-using namespace Core;
+#include "CubeTexture.h"
+using namespace BasicEngine;
+using namespace Models;
 
 int main(int argc, char **argv)
 {
-	WindowInfo window(std::string("in2gpu OpenGL Chapter 2 tutorial"), 400, 200, 800, 600, true);
-	ContextInfo context(4, 2, true);
-	FramebufferInfo frameBufferInfo(true, true, true, true);
 
-	Init_GLUT::init(window, context, frameBufferInfo);
+	Engine* engine = new Engine();
+	engine->Init();
 
-	Managers::SceneManager* scene = new Managers::SceneManager();
-	IListener* p = scene;
-	Init_GLUT::setListener(p);
+	engine->GetShader_Manager()->createProgram("cubeShader",
+		"Cube_Texture_Vertex_Shader.glsl",
+		"Texture_Fragment_Shader.glsl");
 
-	Managers::ShaderManager shaderManager;
-	shaderManager.createProgram("cubeShader",
-		"Cube_Vertex_Shader.glsl",
-		"Fragment_Shader.glsl");
+	CubeTexture* cube = new CubeTexture();
+	int program = engine->GetShader_Manager()->GetShader("cubeShader");
+	if (program != 0)
+	{
+		cube->SetProgram(program);
+		cube->Create();
+	}
+	else
+	{
+		std::cout << "invalid program...";
+		std::cin.get();
+	}
+	unsigned int texture = engine->GetTexture_Loader()->LoadTexture("SmileTexture.bmp", 256, 256);
+	cube->SetTexture("Create", texture);
 
-	TextureLoader textureLoader;
+	engine->GetModels_Manager()->SetModel("cube", cube);
 
-	Managers::ModelsManager* modelsManager = new Managers::ModelsManager();
+	engine->Run();
 
-	scene->setModelsManager(modelsManager);
-	Models::IndexedCube cube;
-	cube.SetProgram(shaderManager.GetShader("cubeShader"));
-	cube.Create();
-	modelsManager->SetModel("square", &cube);
-	Init_GLUT::run();
-	
-	// Clean up
-	delete scene;
-	delete modelsManager;
+	delete engine;
 	return 0;
 }

@@ -4,7 +4,7 @@
 #include "ModelsManager.h"
 #include <Windows.h>
 
-#define FPS 40.0
+#define FPS 40
 
 /**
 * SceneManager extends IListener

@@ -67,12 +67,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Cube_Texture_Vertex_Shader.glsl" />
     <None Include="Cube_Vertex_Shader.glsl" />
     <None Include="Fragment_Shader.glsl" />
     <None Include="packages.config" />
+    <None Include="Texture_Fragment_Shader.glsl" />
+    <None Include="Texture_Vertex_Shader.glsl" />
     <None Include="Vertex_Shader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CubeTexture.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="IndexedCube.cpp" />
     <ClCompile Include="InitGlew.cpp" />
@@ -93,6 +97,7 @@
   <ItemGroup>
     <ClInclude Include="BMPHeaders.h" />
     <ClInclude Include="ContextInfo.h" />
+    <ClInclude Include="CubeTexture.h" />
     <ClInclude Include="DebugOutput.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FrameBufferInfo.h" />
@@ -111,6 +116,9 @@
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="VertexFormat.h" />
     <ClInclude Include="WindowInfo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="SmileTexture.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
