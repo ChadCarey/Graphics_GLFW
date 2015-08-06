@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CubeTexture.cpp" />
+    <ClCompile Include="DrawCube.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="IndexedCube.cpp" />
     <ClCompile Include="InitGlew.cpp" />
@@ -99,6 +100,7 @@
     <ClInclude Include="ContextInfo.h" />
     <ClInclude Include="CubeTexture.h" />
     <ClInclude Include="DebugOutput.h" />
+    <ClInclude Include="DrawCube.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FrameBufferInfo.h" />
     <ClInclude Include="IGameObject.h" />
@@ -107,17 +109,22 @@
     <ClInclude Include="InitGlut.h" />
     <ClInclude Include="IListener.h" />
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="IRunnable.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelsManager.h" />
     <ClInclude Include="Quad.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ShaderManager.h" />
+    <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Tetrahedron.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="VertexFormat.h" />
     <ClInclude Include="WindowInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bamboo.bmp" />
+    <Image Include="Crate.bmp" />
     <Image Include="SmileTexture.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

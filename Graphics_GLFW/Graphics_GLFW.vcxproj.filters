@@ -58,6 +58,15 @@
     <Filter Include="Source Files\DrawCube\Models">
       <UniqueIdentifier>{1eda7eba-df4b-4a86-b02c-14f90d58c7de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Textures">
+      <UniqueIdentifier>{eafb3c32-5a30-4eb0-9f62-082af3c01780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DrawSphere">
+      <UniqueIdentifier>{d8172d93-7bb2-48a6-910c-4eef5520b5ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DrawSphere\Models">
+      <UniqueIdentifier>{73ecdfca-69df-4d4f-ba2b-4a7187fee4be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -123,6 +132,9 @@
     <ClCompile Include="CubeTexture.cpp">
       <Filter>Source Files\DrawCube\Models</Filter>
     </ClCompile>
+    <ClCompile Include="DrawCube.cpp">
+      <Filter>Source Files\DrawCube</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="openGlSetup.txt" />
@@ -173,12 +185,6 @@
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="IGameObject.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="IListener.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="VertexFormat.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -191,10 +197,34 @@
     <ClInclude Include="CubeTexture.h">
       <Filter>Header Files\DrawCube\Models</Filter>
     </ClInclude>
+    <ClInclude Include="Tetrahedron.h">
+      <Filter>Header Files\DrawSphere\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\DrawSphere\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="IListener.h">
+      <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameObject.h">
+      <Filter>Header Files\Engine\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="IRunnable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCube.h">
+      <Filter>Header Files\DrawCube</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="SmileTexture.bmp">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="bamboo.bmp">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Crate.bmp">
+      <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>
 </Project>
