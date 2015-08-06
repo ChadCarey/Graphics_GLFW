@@ -46,6 +46,18 @@
     <Filter Include="Source Files\Engine\Init">
       <UniqueIdentifier>{89bd342c-4e18-4db6-9d80-a40cea4ac180}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DrawCube">
+      <UniqueIdentifier>{2b4f3178-7742-4023-8e2a-6f693627ac6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DrawCube">
+      <UniqueIdentifier>{e4fa7e0b-6149-4728-93e2-68032571dba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DrawCube\Models">
+      <UniqueIdentifier>{edffafb4-ed92-427c-a6fc-65105d7a1b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DrawCube\Models">
+      <UniqueIdentifier>{1eda7eba-df4b-4a86-b02c-14f90d58c7de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -84,9 +96,6 @@
     <ClCompile Include="Quad.cpp">
       <Filter>Source Files\Engine\Models</Filter>
     </ClCompile>
-    <ClCompile Include="LameCube.cpp">
-      <Filter>Source Files\Engine\Models</Filter>
-    </ClCompile>
     <ClCompile Include="TextureLoader.cpp">
       <Filter>Source Files\Engine\Textures</Filter>
     </ClCompile>
@@ -95,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Source Files\DrawCube\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexedCube.cpp">
+      <Filter>Source Files\DrawCube\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,9 +152,6 @@
     <ClInclude Include="DebugOutput.h">
       <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
-    <ClInclude Include="LameCube.h">
-      <Filter>Header Files\Engine\Models</Filter>
-    </ClInclude>
     <ClInclude Include="BMPHeaders.h">
       <Filter>Header Files\Engine\Textures</Filter>
     </ClInclude>
@@ -157,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="VertexFormat.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Header Files\DrawCube\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexedCube.h">
+      <Filter>Header Files\DrawCube\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

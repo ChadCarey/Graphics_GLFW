@@ -13,6 +13,8 @@ SceneManager::SceneManager()
 							0.0f, 1.0f, 0.0f, 0.0f,
 							0.0f, 0.0f, -1.0f, 0.0f,
 							0.0f, 0.0f, 10.0f, 1.0f);
+	lastDraw = 0.0;
+	drawTime = 1000.0 / FPS;
 }
 
 SceneManager::~SceneManager()
@@ -28,10 +30,21 @@ void SceneManager::notifyBeginFrame()
 
 void SceneManager::notifyDisplayFrame()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0, 0.0, 0.0, 1.0);
-	models_manager->Draw();
-	models_manager->Draw(projection_matrix, view_matrix);
+	// if (currentTime-lastDraw)/FPS >= second/FPS
+	
+	
+	long long currentTime = milliseconds_now(); // GLITCH: spinning cube jerking seems to be from this
+	if (currentTime - lastDraw >= drawTime)
+	{
+		std::cout << "\nCurrentTime: " << currentTime 
+				  << "\nLastDraw: " << lastDraw 
+				  << "\nDrawTime: " << drawTime << std::endl;
+		lastDraw = currentTime;
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClearColor(0.0, 0.0, 0.0, 1.0);
+		models_manager->Draw();
+		models_manager->Draw(projection_matrix, view_matrix);
+	}
 }
 
 void SceneManager::notifyEndFrame() {}
@@ -52,4 +65,17 @@ void SceneManager::notifyReshape(int width, int height, int previous_width, int 
 void SceneManager::setModelsManager(Managers::ModelsManager*& models_m)
 {
 	models_manager = models_m;
+}
+
+long long SceneManager::milliseconds_now() {
+	static LARGE_INTEGER s_frequency;
+	static BOOL s_use_qpc = QueryPerformanceFrequency(&s_frequency);
+	if (s_use_qpc) {
+		LARGE_INTEGER now;
+		QueryPerformanceCounter(&now);
+		return (1000LL * now.QuadPart) / s_frequency.QuadPart;
+	}
+	else {
+		return GetTickCount();
+	}
 }

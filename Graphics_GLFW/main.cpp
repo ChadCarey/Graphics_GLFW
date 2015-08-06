@@ -3,7 +3,8 @@
 #include "SceneManager.h"
 #include "Engine.h"
 #include "ModelsManager.h"
-#include "LameCube.h"
+#include "Cube.h"
+#include "IndexedCube.h"
 using namespace Core;
 
 int main(int argc, char **argv)
@@ -28,7 +29,7 @@ int main(int argc, char **argv)
 	Managers::ModelsManager* modelsManager = new Managers::ModelsManager();
 
 	scene->setModelsManager(modelsManager);
-	Models::LameCube cube;
+	Models::IndexedCube cube;
 	cube.SetProgram(shaderManager.GetShader("cubeShader"));
 	cube.Create();
 	modelsManager->SetModel("square", &cube);

@@ -10,11 +10,11 @@
 
 namespace Models
 {
-	class LameCube : public Models::Model
+	class Cube : public Models::Model
 	{
 	public:
-		LameCube();
-		~LameCube();
+		Cube();
+		~Cube();
 
 		void Create();
 		virtual void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) override final;
@@ -22,6 +22,5 @@ namespace Models
 
 	private:
 		glm::vec3 rotation, rotation_speed;
-		time_t timer;
 	};
 }

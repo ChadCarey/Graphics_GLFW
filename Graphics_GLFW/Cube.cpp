@@ -1,19 +1,17 @@
-#include "LameCube.h"
+#include "Cube.h"
 using namespace Models;
 using namespace Rendering;
 
 #define PI 3.14159265
 
-LameCube::LameCube() {}
+Cube::Cube() {}
 
-LameCube::~LameCube() {}
+Cube::~Cube() {}
 
-void LameCube::Create()
+void Cube::Create()
 {
 	GLuint vao;
 	GLuint vbo;
-
-	time(&timer);
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -89,12 +87,12 @@ void LameCube::Create()
 	rotation = glm::vec3(0.0, 0.0, 0.0);
 }
 
-void LameCube::Update()
+void Cube::Update()
 {
 
 }
 
-void LameCube::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix)
+void Cube::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix)
 {
 	rotation = 0.01f * rotation_speed + rotation;
 

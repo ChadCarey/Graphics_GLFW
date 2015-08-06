@@ -2,6 +2,9 @@
 #include "ShaderManager.h"
 #include "IListener.h"
 #include "ModelsManager.h"
+#include <Windows.h>
+
+#define FPS 40.0
 
 /**
 * SceneManager extends IListener
@@ -26,5 +29,8 @@ namespace Managers
 		Managers::ModelsManager* models_manager;
 		glm::mat4 projection_matrix;
 		glm::mat4 view_matrix;
+		long long lastDraw;
+		long long drawTime;
+		long long milliseconds_now();
 	};
 }
