@@ -16,29 +16,35 @@
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{c40f0bb4-93c1-429e-b28f-e3763ca3c156}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Init">
-      <UniqueIdentifier>{3bbbd268-f562-4c1a-9fce-0ac5ee18e6e9}</UniqueIdentifier>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{526b9528-b9cb-42d8-a27e-3df1f64d285e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Init">
-      <UniqueIdentifier>{89bd342c-4e18-4db6-9d80-a40cea4ac180}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Models">
-      <UniqueIdentifier>{c8cf090f-3cc2-43bd-a8b9-25ab689937be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Models">
-      <UniqueIdentifier>{38b8a631-c851-4a9a-9231-6e7671c9bd93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Managers">
-      <UniqueIdentifier>{90891c95-4e3c-4a83-b0b7-432af389ac1c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Managers">
-      <UniqueIdentifier>{254f60f5-d69d-4fcc-ae33-d7094fc3dd29}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Textures">
+    <Filter Include="Header Files\Engine\Textures">
       <UniqueIdentifier>{dedade9d-b8a4-4d79-b1a7-49bcc5de96e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Textures">
+    <Filter Include="Header Files\Engine\Models">
+      <UniqueIdentifier>{c8cf090f-3cc2-43bd-a8b9-25ab689937be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Managers">
+      <UniqueIdentifier>{90891c95-4e3c-4a83-b0b7-432af389ac1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Init">
+      <UniqueIdentifier>{3bbbd268-f562-4c1a-9fce-0ac5ee18e6e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{cf049699-0b40-41d2-8217-99cbed71788e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Textures">
       <UniqueIdentifier>{9bfc9ff2-e145-4c60-9e16-eefc716addc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Models">
+      <UniqueIdentifier>{38b8a631-c851-4a9a-9231-6e7671c9bd93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Managers">
+      <UniqueIdentifier>{254f60f5-d69d-4fcc-ae33-d7094fc3dd29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Init">
+      <UniqueIdentifier>{89bd342c-4e18-4db6-9d80-a40cea4ac180}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,99 +61,99 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InitGlew.cpp">
-      <Filter>Source Files\Init</Filter>
+      <Filter>Source Files\Engine\Init</Filter>
     </ClCompile>
     <ClCompile Include="InitGlut.cpp">
-      <Filter>Source Files\Init</Filter>
+      <Filter>Source Files\Engine\Init</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
-      <Filter>Source Files\Models</Filter>
+      <Filter>Source Files\Engine\Models</Filter>
     </ClCompile>
     <ClCompile Include="Triangle.cpp">
-      <Filter>Source Files\Models</Filter>
+      <Filter>Source Files\Engine\Models</Filter>
     </ClCompile>
     <ClCompile Include="ModelsManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="ShaderManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Quad.cpp">
-      <Filter>Source Files\Models</Filter>
+      <Filter>Source Files\Engine\Models</Filter>
     </ClCompile>
     <ClCompile Include="LameCube.cpp">
-      <Filter>Source Files\Models</Filter>
+      <Filter>Source Files\Engine\Models</Filter>
     </ClCompile>
     <ClCompile Include="TextureLoader.cpp">
-      <Filter>Source Files\Textures</Filter>
+      <Filter>Source Files\Engine\Textures</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="openGlSetup.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VertexFormat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="WindowInfo.h">
-      <Filter>Header Files\Init</Filter>
+      <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
     <ClInclude Include="ContextInfo.h">
-      <Filter>Header Files\Init</Filter>
+      <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
     <ClInclude Include="FrameBufferInfo.h">
-      <Filter>Header Files\Init</Filter>
+      <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
     <ClInclude Include="InitGlew.h">
-      <Filter>Header Files\Init</Filter>
+      <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
     <ClInclude Include="InitGlut.h">
-      <Filter>Header Files\Init</Filter>
-    </ClInclude>
-    <ClInclude Include="IListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IGameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
-      <Filter>Header Files\Models</Filter>
+      <Filter>Header Files\Engine\Models</Filter>
     </ClInclude>
     <ClInclude Include="Triangle.h">
-      <Filter>Header Files\Models</Filter>
+      <Filter>Header Files\Engine\Models</Filter>
     </ClInclude>
     <ClInclude Include="ModelsManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="ShaderManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Quad.h">
-      <Filter>Header Files\Models</Filter>
+      <Filter>Header Files\Engine\Models</Filter>
     </ClInclude>
     <ClInclude Include="DebugOutput.h">
-      <Filter>Header Files\Init</Filter>
+      <Filter>Header Files\Engine\Init</Filter>
     </ClInclude>
     <ClInclude Include="LameCube.h">
-      <Filter>Header Files\Models</Filter>
+      <Filter>Header Files\Engine\Models</Filter>
     </ClInclude>
     <ClInclude Include="BMPHeaders.h">
-      <Filter>Header Files\Textures</Filter>
+      <Filter>Header Files\Engine\Textures</Filter>
     </ClInclude>
     <ClInclude Include="TextureLoader.h">
-      <Filter>Header Files\Textures</Filter>
+      <Filter>Header Files\Engine\Textures</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameObject.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="IListener.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexFormat.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
